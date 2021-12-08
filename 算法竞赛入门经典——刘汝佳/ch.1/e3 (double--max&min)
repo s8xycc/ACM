@@ -1,0 +1,6 @@
+#include <stdio.h>
+int main()
+{
+    double max=1e308,min=-1e309;
+    printf("%lf\n%lf",max,min);
+}
