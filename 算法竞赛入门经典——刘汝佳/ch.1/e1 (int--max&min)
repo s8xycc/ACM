@@ -1,0 +1,6 @@
+#include <stdio.h>
+int main()
+{
+    int max=1e100,min=-1e100;
+    printf("%d %d",max,min);
+}
