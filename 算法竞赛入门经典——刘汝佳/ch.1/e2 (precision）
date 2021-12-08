@@ -1,0 +1,6 @@
+#include <stdio.h>
+int main()
+{
+    double max=10.73232041040404104042;
+    printf("%.55lf",max);
+}
