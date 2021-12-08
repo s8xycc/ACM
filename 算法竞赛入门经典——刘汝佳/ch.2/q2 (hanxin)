@@ -1,0 +1,20 @@
+#include <stdio.h>
+int main()
+{
+    int a,b,c,t,sum;
+    scanf("%d %d %d",&a,&b,&c);
+    int i=0;
+    while((3*i+a)%5!=b)
+    {
+        i++;
+        t=3*i+a;
+    }
+    i=0;
+    while((3*5*i+t)%7!=c)
+    {
+        i++;
+        sum=3*5*i+t;
+    }
+    if(sum<=100&&sum>=10) printf("%d",sum);
+    else printf("No answer");
+}
