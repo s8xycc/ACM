@@ -1,17 +1,15 @@
 #include <stdio.h>
 int main()
 {
-    int n,m;
-    long double sum=0;
-    scanf("%d%d",&n,&m);
-    while(n!=m&&n!=0&&m!=0)
+    long long n,m;
+    double sum=0;
+    while(scanf("%lld%lld",&n,&m)==2&&n!=m&&n!=0&&m!=0)
     {
         while(n<=m)
         {
             sum+=1/(double)(n*n);
             n++;
         }
-        printf("%.5llf\n",sum);
-        scanf("%d%d",&n,&m);
+        printf("%.5lf\n",sum);
     }
 }
