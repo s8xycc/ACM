@@ -1,0 +1,8 @@
+bool is_prime(int x)
+{
+    if(x<=1) return false;
+    int m=floor(sqrt(x)+0.5);
+    for(int i=0;i<=m;i++)
+        if(x%i==0) return false;
+    return true;
+}
