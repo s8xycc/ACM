@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int cmp(const void *a,const void *b)
+{
+    return *(int *)b-*(int *)a;
+}
+
+int main(void)
+{
+    int a[26],b[26];
+    char ch,s1[105],s2[105];
+    while(scanf("%s",s1)==1&&scanf("%s",s2)==1)
+    {
+        int f=1;
+        memset(a,0,sizeof(a));
+        memset(b,0,sizeof(b));
+        int n=strlen(s1);
+        for(int i=0;i<n;i++)
+        {
+            a[s1[i]-'A']++;
+            b[s2[i]-'A']++;
+        }
+        qsort(a,26,sizeof(int),cmp);
+        qsort(b,26,sizeof(int),cmp);
+        for(int i=0;i<26;i++)
+        {
+            if(a[i]!=b[i])
+            {
+                f=0;
+                break;
+            }
+        }
+        if(f) printf("YES\n");
+        else printf("NO\n");
+    }
+}
