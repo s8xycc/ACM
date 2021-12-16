@@ -1,0 +1,66 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    for(int i=1234;i<=9876;i++)
+    {
+        int sgn=sqrt(i);
+        for(int j=2;j<sgn;j++)
+            if(i%j==0)
+            {
+                int a[11]={0};
+                int z=i,x=j,y=i/j;
+                while(z>0)
+                {
+                    a[z%10]++;
+                    z/=10;
+                }
+                while(x>0)
+                {
+                    a[x%10]++;
+                    x/=10;
+                }
+                while(y>0)
+                {
+                    a[y%10]++;
+                    y/=10;
+                }
+                int f=a[0]==0;
+                int cnt=0;
+                for(int k=1;k<=9;cnt+=a[k++]) if(a[k]>1) f=0;
+                if(f&&cnt==9) printf("%d = %d x %d\n",i,j,i/j);
+            }
+    }
+}
+
+//other
+#include<bits/stdc++.h>
+using namespace std;
+const int N=1e3*3+10;
+typedef long long int LL;
+struct node{int a,b,c;}temp;
+bool cmp(node a,node b) {return a.a<b.a;}
+vector<node> ans;
+void check(int i,int j)
+{
+    int s[10]={0};
+    LL sum=i*j;
+    LL a,b,c;
+    a=sum,b=i,c=j;
+    while(i) s[i%10]++,i/=10;
+    while(j) s[j%10]++,j/=10;
+    while(sum) s[sum%10]++,sum/=10;
+    if(s[0]) return;
+    for(int i=1;i<=9;i++) if(!s[i]||s[i]>1) return;
+    temp.a=a,temp.b=b,temp.c=c;
+    ans.push_back(temp);
+}
+int main(void)
+{
+    for(int i=1;i<=N;i++)
+        for(int j=i+1;j<=N;j++)
+            check(i,j);
+    sort(ans.begin(),ans.end(),cmp);
+    for(int i=0;i<ans.size();i++) cout<<ans[i].a<<" = "<<ans[i].b<<" x "<<ans[i].c<<endl;
+    return 0;
+}
