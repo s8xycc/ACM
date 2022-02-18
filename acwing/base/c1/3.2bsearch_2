@@ -1,0 +1,11 @@
+int bsearch_2(int a[],int x,int n)//find right-edge
+{
+    int l=0,r=n-1;
+    while(l<r)
+    {
+        int mid=l+r+1>>1;
+        if(a[mid]<=x)l=mid;
+        else r=mid-1;
+    }
+    return l;
+}
