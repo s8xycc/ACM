@@ -1,0 +1,11 @@
+int bsearch_1(int a[],int x,int n)//find left-edge
+{
+    int l=0,r=n-1;
+    while(l<r)
+    {
+        int mid=r+l>>1;
+        if(a[mid]>=x)r=mid;
+        else l=mid+1;
+    }
+    return l;
+}
