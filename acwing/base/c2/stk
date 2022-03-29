@@ -1,0 +1,15 @@
+//init
+int stk[N],tt;
+
+//push
+stk[++tt]=x;
+
+//pop
+tt--;
+
+//empty
+if(tt)cout<<"NO"<<endl;
+else cout<<"YES"<<endl;
+
+//query
+cout<<stk[tt]<<endl;
