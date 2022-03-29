@@ -1,0 +1,15 @@
+//init
+int q[N],hh,tt=-1;
+
+//push
+q[++tt]=x;
+
+//pop
+hh++;
+
+//empty
+if(hh<=tt)cout<<"NO"<<endl;
+else cout<<"YES"<<endl;
+
+//query
+cout<<q[hh]<<endl;
