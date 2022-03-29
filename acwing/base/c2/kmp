@@ -1,0 +1,24 @@
+// init 
+char q[N],s[M]
+int ne[N]
+
+int main(){
+    //init
+    cin>>n>>q+1>>m>>s+1;
+    
+    //next
+    for(int i=2,j=0;i<=n;i++){
+        if(j&&p[j+1]!=p[i])j=ne[j];
+        if(p[j+1]==p[i])j++;
+        ne[i]=j;
+    }
+    
+    //for(int i=1,j=0;i<=m;i++){
+        if(j&&p[j+1]!=s[i])j=ne[j];
+        if(s[i]==p[j+1])j++;
+        if(j==n){
+            //action;
+            //j=ne[j];
+        }
+    }
+}
