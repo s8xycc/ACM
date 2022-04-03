@@ -1,5 +1,8 @@
 //init
 int h[N],idx,e[N],ne[N];
+void init(){
+    memset(h,-1,sizeof h);
+}
 
 //insert
 void insert(int x){
