@@ -1,0 +1,49 @@
+//init 
+int h[N],cnt,m,ph[N],hp[N];
+
+//heap_swap(int a,int b){
+    swap(ph[hp[a]],ph[hp[b]]);
+    swap(hp[a],ph[b]);
+    swap(h[a],h[b]);
+}
+
+//down
+void down(int u){
+    int t = u;
+    if(2 * u <= cnt && h[2 * u] < h[t]) t = 2 * u;
+    if(2 * u + 1 <= cnt && h[2 * u + 1] <h[t]) t = 2 * u + 1;
+    if(t != u) heap_swap(t,u),down(t);
+}
+
+//up
+void up(int u){
+    while(u/2&&h[u/2]>h[u]){
+        heap_swap(u,u/2);
+        u/=2;
+    }
+}
+
+//insert(int x)
+    ph[++m]=++cnt;
+    hp[cnt]=m;
+    h[cnt]=x;
+    up(cnt);
+    
+//输出当前集合中的最小值；
+    cout<<h[1];
+    
+//DM，删除当前集合中的最小值（数据保证此时的最小值唯一）；
+    heap_swap(1,cnt--);
+    down(1);
+    
+//D k，删除第  k  个插入的数；
+    k=ph[k];
+    heap_swap(k,cnt--);
+    down(k);
+    up(k);
+    
+//C k x，修改第  k  个插入的数，将其变为  x ；
+    k=ph[k];
+    h[k]=x;
+    down(k);
+    up(k);
