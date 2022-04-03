@@ -1,0 +1,28 @@
+//init
+int h[N],cnt;
+
+//down
+void down(int u){
+    int t=u;
+    if(u*2<=cnt&&h[u*2]<h[t])t=u*2;
+    if(u*2+1<=cnt&&h[u*2+1]<h[t])t=u*2+1;
+    if(u!=t){
+        swap(h[u],h[t]);
+        down(t);
+    }
+}
+
+//up
+void up(int u){
+    while(u/2&&h[u]<h[u/2]){
+        swap(h[u],u/2);
+        u/=2;
+    }
+}
+
+int main(){
+    int n;
+    for(int i=1;i<=n;i++)cin>>h[i];
+    cnt=n;
+    for(int i=n/2;i>=0;i--)down(i);
+}
